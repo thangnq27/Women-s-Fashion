@@ -122,6 +122,7 @@
     <Content Include="Assets\admin\dist\css\sb-admin-2.min.css" />
     <Content Include="Assets\admin\dist\js\sb-admin-2.js" />
     <Content Include="Assets\admin\dist\js\sb-admin-2.min.js" />
+    <Content Include="Assets\admin\js\controller\ProductCategory.js" />
     <Content Include="Assets\admin\js\controller\UserController.js" />
     <Content Include="Assets\admin\js\plugin\ckeditor\adapters\jquery.js" />
     <Content Include="Assets\admin\js\plugin\ckeditor\build-config.js" />
@@ -1494,6 +1495,8 @@
     <Content Include="Assets\user\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Assets\user\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\user\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductCategory\Index.cshtml" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -1511,6 +1514,7 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Common\CommonConstaint.cs" />
     <Compile Include="Common\Encryption.cs" />
@@ -1529,7 +1533,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Shared\_layout1.cshtml" />
     <Content Include="Assets\admin\vendor\bootstrap-social\bootstrap-social.less" />
     <Content Include="Assets\admin\vendor\bootstrap-social\bootstrap-social.scss" />
     <Content Include="Assets\admin\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
