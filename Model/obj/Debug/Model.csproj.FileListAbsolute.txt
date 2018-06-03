@@ -1,0 +1,26 @@
+C:\Users\Windows 10 TIMT\source\repos\OnLineShop\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Windows 10 TIMT\source\repos\OnLineShop\Model\bin\Debug\Model.dll.config
+C:\Users\Windows 10 TIMT\source\repos\OnLineShop\Model\bin\Debug\Model.dll
+C:\Users\Windows 10 TIMT\source\repos\OnLineShop\Model\bin\Debug\Model.pdb
+C:\Users\Windows 10 TIMT\source\repos\OnLineShop\Model\bin\Debug\EntityFramework.dll
+C:\Users\Windows 10 TIMT\source\repos\OnLineShop\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Windows 10 TIMT\source\repos\OnLineShop\Model\bin\Debug\EntityFramework.xml
+C:\Users\Windows 10 TIMT\source\repos\OnLineShop\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Windows 10 TIMT\source\repos\OnLineShop\Model\obj\Debug\Model.dll
+C:\Users\Windows 10 TIMT\source\repos\OnLineShop\Model\obj\Debug\Model.pdb
+C:\Users\Windows 10 TIMT\source\repos\OnLineShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\Source\OnLineShop\Model\bin\Debug\Model.dll.config
+D:\Source\OnLineShop\Model\bin\Debug\Model.dll
+D:\Source\OnLineShop\Model\bin\Debug\Model.pdb
+D:\Source\OnLineShop\Model\bin\Debug\EntityFramework.dll
+D:\Source\OnLineShop\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Source\OnLineShop\Model\bin\Debug\PagedList.dll
+D:\Source\OnLineShop\Model\bin\Debug\PagedList.Mvc.dll
+D:\Source\OnLineShop\Model\bin\Debug\EntityFramework.xml
+D:\Source\OnLineShop\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Source\OnLineShop\Model\bin\Debug\PagedList.xml
+D:\Source\OnLineShop\Model\bin\Debug\PagedList.Mvc.xml
+D:\Source\OnLineShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\Source\OnLineShop\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Source\OnLineShop\Model\obj\Debug\Model.dll
+D:\Source\OnLineShop\Model\obj\Debug\Model.pdb
