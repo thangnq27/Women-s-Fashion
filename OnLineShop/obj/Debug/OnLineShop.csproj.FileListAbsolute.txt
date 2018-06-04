@@ -77,6 +77,8 @@ D:\Source\OnLineShop\OnLineShop\obj\Debug\OnLineShop.csprojResolveAssemblyRefere
 D:\Source\OnLineShop\OnLineShop\obj\Debug\OnLineShop.csproj.CoreCompileInputs.cache
 D:\Source\OnLineShop\OnLineShop\obj\Debug\OnLineShop.dll
 D:\Source\OnLineShop\OnLineShop\obj\Debug\OnLineShop.pdb
+D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\obj\Debug\OnLineShop.csprojResolveAssemblyReference.cache
+D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\obj\Debug\OnLineShop.csproj.CoreCompileInputs.cache
 D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\bin\OnLineShop.dll.config
 D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\bin\OnLineShop.dll
 D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\bin\OnLineShop.pdb
@@ -114,7 +116,5 @@ D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\bin\Newtonsoft.Json.xml
 D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\bin\System.Net.Http.Formatting.xml
 D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\bin\System.Web.Http.xml
 D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\bin\System.Web.Http.WebHost.xml
-D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\obj\Debug\OnLineShop.csprojResolveAssemblyReference.cache
-D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\obj\Debug\OnLineShop.csproj.CoreCompileInputs.cache
 D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\obj\Debug\OnLineShop.dll
 D:\Source\GIT-OnlineShop\Women-s-Fashion\OnLineShop\obj\Debug\OnLineShop.pdb

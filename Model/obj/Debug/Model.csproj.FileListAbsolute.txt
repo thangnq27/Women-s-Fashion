@@ -24,10 +24,6 @@ D:\Source\OnLineShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 D:\Source\OnLineShop\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 D:\Source\OnLineShop\Model\obj\Debug\Model.dll
 D:\Source\OnLineShop\Model\obj\Debug\Model.pdb
-D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
-D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
-D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\obj\Debug\Model.dll
-D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\obj\Debug\Model.pdb
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\Model.dll.config
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\Model.dll
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\Model.pdb
@@ -39,3 +35,9 @@ D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\EntityFramework.xml
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\PagedList.xml
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\PagedList.Mvc.xml
+D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\obj\Debug\Model.dll
+D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\obj\Debug\Model.pdb
+D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\Newtonsoft.Json.dll
+D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\Newtonsoft.Json.xml

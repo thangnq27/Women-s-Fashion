@@ -1,11 +1,59 @@
-﻿
+﻿@model List<Model.EF.ProductCategory>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+    //WebGrid grid=new WebGrid(Model);
+    WebGrid grid = new WebGrid(Model, rowsPerPage: 4);
 }
 @section header{
     Product Category List
 }
+@section jsFooter
+{
+
+    <script src="/Assets/admin/js/controller/ProductCategory.js"></script>
+}
+<style type="text/css">
+    /*.table
+        {
+            margin: 4px;
+            border-collapse: collapse;
+            width: 300px;
+        }*/
+    .table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+        width: 100%;
+        display: table;
+        border-collapse: separate;
+        border: solid 1px yellowgreen;
+        background-color: white;
+    }
+
+    .header {
+        background-color: yellowgreen;
+        font-weight: bold;
+        color: blue;
+        padding-top: 5px;
+        padding: 3px 7px 2px;
+    }
+
+    .table th, .table td {
+        border: 1px solid black;
+        /*padding: 5px;*/
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: pink;
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+    /*for alteranating row style*/
+</style>
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
@@ -17,10 +65,31 @@
                     <button type="submit" class="btn btn-danger" id="btnSync">Sync</button>
                 </div>
                 <div class="row show-grid">
-                    <div class="col-md-4">Name</div>
-                    <div class="col-md-4">Parent ID</div>
-                    <div class="col-md-4">Display order</div>
-                   
+                    @grid.GetHtml(
+                             htmlAttributes: new { id = "tblData" },
+                             tableStyle: "table", // applying style on grid
+
+                             //fillEmptyRows: true,
+                             //show empty row when there is only one record on page to it will display all empty rows there.
+
+                             headerStyle: "header", //applying style.
+
+                             footerStyle: "grid-footer", //applying style.
+                             alternatingRowStyle: "webgrid-alternating-row",
+                             rowStyle: "webgrid-row-style",
+                             mode: WebGridPagerModes.All, //paging to grid
+                             firstText: "<< First",
+                             previousText: "< Prev",
+                             nextText: "Next >",
+                             lastText: "Last >>",
+                             columns: new[]
+                             {
+                                    grid.Column("Name",style:"name"),
+                                    grid.Column("ParentID",style:"parentID"),
+                                    grid.Column("DisplayOrder",style:"order")
+                             }
+                             )
+
                 </div>
             </div>
         </div>
