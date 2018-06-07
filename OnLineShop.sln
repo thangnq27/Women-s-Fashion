@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineShop", "OnLineShop\On
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{DB64F93D-F1EE-4130-9344-7B82394C6966}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopAPI", "OnlineShopAPI\OnlineShopAPI.csproj", "{84B61F2D-613C-4795-9F2F-5E6878769394}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DB64F93D-F1EE-4130-9344-7B82394C6966}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB64F93D-F1EE-4130-9344-7B82394C6966}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB64F93D-F1EE-4130-9344-7B82394C6966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84B61F2D-613C-4795-9F2F-5E6878769394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84B61F2D-613C-4795-9F2F-5E6878769394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84B61F2D-613C-4795-9F2F-5E6878769394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84B61F2D-613C-4795-9F2F-5E6878769394}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

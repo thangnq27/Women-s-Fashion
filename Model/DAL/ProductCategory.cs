@@ -21,7 +21,7 @@ namespace Model.DAL
 
         public bool SynChronizedData(string data)
         {
-            var cat = new Model.EF.ProductCategory();
+            var cat = new EF.ProductCategory();
             try
             {
                 //var jObject = JObject.Parse(data);
@@ -31,7 +31,12 @@ namespace Model.DAL
                 foreach (EF.ProductCategory category in jObject)
                 {
                     cat.Name = category.Name;
+                    cat.ParentID = category.ParentID;
                     cat.DisplayOrder = category.DisplayOrder;
+                    cat.CreateDate=DateTime.Now;
+                    cat.CreateBy = category.CreateBy;
+                    cat.ShowOnHome = true;
+                    cat.Status = true;
                     db.ProductCategories.Add(cat);
                     db.SaveChanges();
                 }

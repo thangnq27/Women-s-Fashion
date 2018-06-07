@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Xml;
 using Model.EF;
 using  Model.DAL;
+using OnLineShop.Common;
 
 namespace OnLineShop.Areas.Admin.Controllers
 {
@@ -24,12 +25,19 @@ namespace OnLineShop.Areas.Admin.Controllers
             foreach (XmlNode node in elNodeList)
             {
                 string name = node.ChildNodes[0].InnerText;
-                int order=Convert.ToInt32(node.ChildNodes[1].InnerText);
+                int parentID = Convert.ToInt32(node.ChildNodes[1].InnerText);
+                int order = Convert.ToInt32(node.ChildNodes[2].InnerText);
+
                 Model.EF.ProductCategory category=new Model.EF.ProductCategory();
                 category.Name = name;
+                category.ParentID = parentID;
                 category.DisplayOrder = order;
+                category.CreateBy = CommonConstaint.USER_SESSION;
                 listData.Add(category);
             }
+            UserLogin userLogin = (UserLogin)Session["USER_SESSION"];
+            //Session.Add(CommonConstaint.USER_SESSION, userSession);
+            Session.Add(CommonConstaint.USERNAME_SESSION, userLogin.UserName);
             return View(listData);
         }
 

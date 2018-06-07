@@ -1166,6 +1166,7 @@
     <Content Include="Assets\admin\js\plugin\ckfinder\_samples\skin_v1.html" />
     <Content Include="Assets\admin\js\plugin\ckfinder\_samples\standalone.html" />
     <Content Include="Assets\admin\js\plugin\ckfinder\_samples\standalone_v1.html" />
+    <Content Include="Assets\admin\js\plugin\jquerysession.js" />
     <Content Include="Assets\admin\js\sb-admin-2.js" />
     <Content Include="Assets\admin\vendor\bootstrap-social\bootstrap-social.css" />
     <Content Include="Assets\admin\vendor\bootstrap\css\bootstrap.css" />
@@ -1591,6 +1592,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Shared\_Navigation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1609,6 +1611,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{db64f93d-f1ee-4130-9344-7b82394c6966}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineShopAPI\OnlineShopAPI.csproj">
+      <Project>{84b61f2d-613c-4795-9f2f-5e6878769394}</Project>
+      <Name>OnlineShopAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

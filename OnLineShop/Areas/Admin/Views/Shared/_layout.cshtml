@@ -22,6 +22,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+@*<script>
+        alert('<%=Session("USER_SESSION")%>');
+
+    </script>*@
 <body>
     <div id="wrapper">
         <!-- Navigation -->
@@ -44,7 +48,8 @@
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->
-    <script src="/Assets/admin/vendor/jquery/jquery.min.js"></script>
+    <script src="/Assets/admin/vendor/jquery/jquery.min.js">
+    </script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="/Assets/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -54,6 +59,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="/Assets/admin/dist/js/sb-admin-2.js"></script>
     <script src="/Assets/admin/js/plugin/ckeditor/ckeditor.js"></script>
+    <script src="/Assets/admin/js/plugin/jquerysession.js"></script>
     @RenderSection("jsFooter", false);
 </body>
 </html>
