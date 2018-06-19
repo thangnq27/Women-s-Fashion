@@ -21,6 +21,26 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- jQuery -->
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- //js -->
+    @*<script src="/Assets/admin/vendor/jquery/jquery.min.js">
+        </script>*@
+    <!-- for bootstrap working -->
+    <script type="text/javascript" src="/Assets/user/js/bootstrap-3.1.1.min.js"></script>
+    <!-- //for bootstrap working -->
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/Assets/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/Assets/admin/vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="/Assets/admin/js/plugin/ckfinder/ckfinder.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="/Assets/admin/dist/js/sb-admin-2.js"></script>
+    <script src="/Assets/admin/js/plugin/ckeditor/ckeditor.js"></script>
+    <script src="/Assets/admin/js/plugin/jquerysession.js"></script>
 </head>
 @*<script>
         alert('<%=Session("USER_SESSION")%>');
@@ -47,19 +67,7 @@
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
-    <!-- jQuery -->
-    <script src="/Assets/admin/vendor/jquery/jquery.min.js">
-    </script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/Assets/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="/Assets/admin/vendor/metisMenu/metisMenu.min.js"></script>
-    <script src="/Assets/admin/js/plugin/ckfinder/ckfinder.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="/Assets/admin/dist/js/sb-admin-2.js"></script>
-    <script src="/Assets/admin/js/plugin/ckeditor/ckeditor.js"></script>
-    <script src="/Assets/admin/js/plugin/jquerysession.js"></script>
+    
     @RenderSection("jsFooter", false);
 </body>
 </html>

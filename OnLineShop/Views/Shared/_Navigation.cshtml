@@ -1,4 +1,8 @@
-﻿<div class="navigation">
+﻿
+@*<script src="/Assets/admin/js/controller/Redirect.js"></script>*@
+<link href="/Assets/user/css/loading.css" rel="stylesheet" />
+
+<div class="navigation">
     <div class="container">
         <nav class="navbar navbar-default">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -21,39 +25,39 @@
 
 
                                 @*<div class="col-sm-3">
-                                        <ul class="multi-column-dropdown">
-                                            <h6>Clothing</h6>
-                                            <li><a href="dresses.html">Dresses<span>New</span></a></li>
-                                            <li><a href="sweaters.html">Sweaters</a></li>
-                                            <li><a href="skirts.html">Shorts & Skirts</a></li>
-                                            <li><a href="jeans.html">Jeans</a></li>
-                                            <li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <ul class="multi-column-dropdown">
-                                            <h6>Ethnic Wear</h6>
-                                            <li><a href="salwars.html">Salwars</a></li>
-                                            <li><a href="sarees.html">Sarees<span>New</span></a></li>
-                                            <li><a href="products.html"><i>Summer Store</i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <ul class="multi-column-dropdown">
-                                            <h6>Foot Wear</h6>
-                                            <li><a href="sandals.html">Flats</a></li>
-                                            <li><a href="sandals.html">Sandals</a></li>
-                                            <li><a href="sandals.html">Boots</a></li>
-                                            <li><a href="sandals.html">Heels</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="w3ls_products_pos">
-                                            <h4>50%<i>Off/-</i></h4>
-                                            <img src="/Assets/user/images/1.jpg" alt=" " class="img-responsive"/>
+                                            <ul class="multi-column-dropdown">
+                                                <h6>Clothing</h6>
+                                                <li><a href="dresses.html">Dresses<span>New</span></a></li>
+                                                <li><a href="sweaters.html">Sweaters</a></li>
+                                                <li><a href="skirts.html">Shorts & Skirts</a></li>
+                                                <li><a href="jeans.html">Jeans</a></li>
+                                                <li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
+                                            </ul>
                                         </div>
-                                    </div>
-                                <div class="clearfix"></div>*@
+                                        <div class="col-sm-3">
+                                            <ul class="multi-column-dropdown">
+                                                <h6>Ethnic Wear</h6>
+                                                <li><a href="salwars.html">Salwars</a></li>
+                                                <li><a href="sarees.html">Sarees<span>New</span></a></li>
+                                                <li><a href="products.html"><i>Summer Store</i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <ul class="multi-column-dropdown">
+                                                <h6>Foot Wear</h6>
+                                                <li><a href="sandals.html">Flats</a></li>
+                                                <li><a href="sandals.html">Sandals</a></li>
+                                                <li><a href="sandals.html">Boots</a></li>
+                                                <li><a href="sandals.html">Heels</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="w3ls_products_pos">
+                                                <h4>50%<i>Off/-</i></h4>
+                                                <img src="/Assets/user/images/1.jpg" alt=" " class="img-responsive"/>
+                                            </div>
+                                        </div>
+                                    <div class="clearfix"></div>*@
                             </div>
                         </ul>
                     </li>
@@ -65,10 +69,14 @@
         </nav>
     </div>
 </div>
+
+<div class="osahanloading" style="display: none"></div>
+
+
 <script>
-    var uri = '/api/ProductCategory';
+    var uri = '/api/ProductCategory/GetAllCategories';
     var obj = [];
-    $.getJSON(uri).success(function (data) {
+    $.getJSON(uri).success(function(data) {
         var strhtml = '';
         var tmp = JSON.parse(data);
         //var tmp = JSON.stringify(data);
@@ -84,24 +92,31 @@
         //        //console.log(objChild.name);
         //    }
         //}
-
+        //console.log(data);
         for (var i = 0; i < arrDataCount; i++) {
             var objtemp = Object.values(tmp)[i];
             if (i == (arrDataCount - 1)) {
                 strhtml += '<div class="col-sm-2"><ul class="multi-column-dropdown">' +
                     '<h6>' +
-                    parentname[i] +
+                    parentname[i].split(';#')[1] +
                     '</h6>';
             } else {
                 strhtml += '<div class="col-sm-3"><ul class="multi-column-dropdown">' +
-                    '<h6>' + parentname[i] + '</h6>';
+                    '<h6>' +
+                    parentname[i].split(';#')[1] +
+                    '</h6>';
             }
             var objChildCount = Object.keys(objtemp).length;
             for (var j = 0; j < objChildCount; j++) {
                 var objChild = Object.values(tmp)[i][j];
                 //console.log(objChild.name);
-                strhtml += '<li><a href="dresses.html">' + objChild.name + '<span>New</span></a></li>';
-                
+                //strhtml += '<li><a href="javascript:;" onclick="GetCategoryById(' + objChild.id+')" data-id=' +
+                strhtml += '<li><a href="javascript:;" data-id=' +
+                    objChild.id +
+                    ' class="cssCategory">' +
+                    objChild.name +
+                    '<span>New</span></a></li>';
+
             }
             if (i == 1) {
                 strhtml += ' <li><a href="products.html"><i>Summer Store</i></a></li>';
@@ -109,8 +124,8 @@
             strhtml += '</ul></div>';
 
         }
-        strhtml+='<div class="col-sm-4">'+
-            '<div class="w3ls_products_pos">'+
+        strhtml += '<div class="col-sm-4">' +
+            '<div class="w3ls_products_pos">' +
             '<h4>50%<i>Off/-</i></h4>' +
             '<img src="/Assets/user/images/1.jpg" alt=" " class="img-responsive"/>' +
             '</div>' +
@@ -119,5 +134,75 @@
 
         $('[data-id="row-navigation"]').html(strhtml);
     });
+    //$body = $("body");
+    //var url = "/ProductCategory/GetCategoryById?id=" + value;
+    $(document).ready(function () {
+        
+        $('.cssCategory').on('click',
+            function(e) {
+                //e.preventDefault();
+                var value = $(this).data('id');
 
+                var url = "/ProductCategory/GetCategoryById?id=" + value;
+                $.ajax({
+                    url: "/ProductCategory/GetCategoryById?id=" + value,
+                    type: 'POST',
+                    //dataType: 'json',
+                    //progress: function (jqXHR, progressEvent) {
+                    //    //if (progressEvent.lengthComputable) {
+                    //    //    console.log("Loaded " + (Math.round(progressEvent.loaded / progressEvent.total * 100)) + "%");
+                    //    //} else {
+                    //    //    console.log("Loading...");
+                    //    //}
+                    //    //$('.osahanloading').show();
+                    //    $('.osahanloading').html().show();  
+                    //},
+                    beforeSend: function () {    
+                        //setTimeout(function () {
+                        //    alert('aaa');
+                        //    $('.osahanloading').show();
+                        //}, 4000);
+                        //$('.osahanloading').show().delay(800).fadeIn(400);
+                        //setTimeout(alert('aaa'), 2000);
+                    },
+                    success: function (data) { 
+                        //window.setTimeout(function(){
+                            $('.osahanloading').delay(800).fadeIn(400);
+                        //}, 4000);
+                    },
+                    complete: function() {                       
+                        //$('.osahanloading').hide();
+                        window.setTimeout(function () {
+                            //$('.osahanloading').delay(800).fadeIn(400);
+                            window.location.href = url;
+                        }, 2000);
+                        
+                    },
+                    error: function (jqXHR) {
+                        console.log("fail:" + jqXHR);
+                    }
+                },5000);
+            });
+    });
+   
+    function GetCategoryById(value) {
+        //$.getJSON('/ProductCategory/GetCategoryById')
+        @*$.ajax({
+            url: '/api/ProductCategory/GetAllCategories/'+value,
+            type: 'GET',
+            //data: {id:value},
+            success: function (data) {
+                //console.log(data);
+                //return;
+                window.location.href = '@Url.Action("Index", "ProductCategory", new { id=pc })';
+            }
+
+        })*@
+        @*@Url.Action("GetCategoryById", "ProductCategory", new { id = 1 })*@
+        //var NestId = $(this).data('id');
+           
+        var url = "/ProductCategory/GetCategoryById?id=" + value;
+        window.location.href = url;
+    }
 </script>
+

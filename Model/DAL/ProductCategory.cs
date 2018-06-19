@@ -50,5 +50,13 @@ namespace Model.DAL
             
 
         }
+
+        public EF.ProductCategory GetProductCategoryById(string id)
+        {
+            EF.ProductCategory pc=new EF.ProductCategory();
+            pc = db.ProductCategories.Find(Int64.Parse(id));
+            return pc;
+        }
+
     }
 }

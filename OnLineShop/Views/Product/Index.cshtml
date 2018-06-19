@@ -1,8 +1,106 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿<div class="w3ls_dresses_grid_right_grid2">
+    <div class="w3ls_dresses_grid_right_grid2_left">
+        <h3>Showing Results: 0-1</h3>
+    </div>
+    <div class="w3ls_dresses_grid_right_grid2_right">
+        <select name="select_item" class="select_item">
+            <option selected="selected">Default sorting</option>
+            <option>Sort by popularity</option>
+            <option>Sort by average rating</option>
+            <option>Sort by newness</option>
+            <option>Sort by price: low to high</option>
+            <option>Sort by price: high to low</option>
+        </select>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+<div id="showproduct"></div>
+@RenderPage("ModalProduct.cshtml")
 
-<h2>Index</h2>
+<script>
+    var strhtml = '';
+    var urlParams = new URLSearchParams(window.location.search);
+    //console.log(urlParams.get('id')); // "value of id in query string"
+    //var id = urlParams.get('id');
+    var id =@Model.ID;
+    console.log(id);
+    var uri = '/api/ProductCategory/GetProductByCategoryId?id=' + id;
 
+
+    $.getJSON(uri).success(function (data) {
+        //console.log(JSON.parse((data)));
+        var arrData = JSON.parse((data));
+        //alert(arrData.length);
+
+
+        for (i = 0; i < arrData.length; i++) {
+            var obj = arrData[i];
+            //console.log(obj.Images);
+            var headerProduct = '';
+            var colproduct = '';
+            var footProduct = '';
+            if ((i >= 3 && (i % 3 == 0)) || i == 0) {
+                headerProduct += '<div class="w3ls_dresses_grid_right_grid3">';
+            }
+            colproduct += '<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">' +
+                '<div class="agile_ecommerce_tab_left dresses_grid">' +
+                '<div class="hs-wrapper hs-wrapper2">' +
+                '<img src="' + obj.Images + '" alt=" " class="img-responsive" />' +
+                '<div class="w3_hs_bottom w3_hs_bottom_sub1">' +
+                '<ul>' +
+                '<li>' +
+                '<a data-toggle="modal" class="popupImage" data-title="'+obj.Name+'" data-target="#myModal6" data-price="'+obj.Price+'" data-promotionprice="'+obj.PromotionPrice+'" data-id="' + obj.Images + '"><span  class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>' +
+                '</li>' +
+                '</ul>' +
+                '</div>' +
+                '</div>' +
+                '<h5><a href="single.html">Dresses</a></h5>' +
+                '<div class="simpleCart_shelfItem">' +
+                '<p><span>$' + obj.Price + '</span> <i class="item_price">$' + obj.PromotionPrice + '</i></p>' +
+                '<p><a class="item_add" href="#">Add to cart</a></p>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+
+
+            if ((i + 1) % 3 == 0 || i == arrData.length - 1) {
+                footProduct += '<div class="clearfix"> </div></div>';
+            }
+            strhtml += headerProduct + colproduct + footProduct;
+        }
+        $('#showproduct').append(strhtml);
+        $('.popupImage').on('click', function () {
+            var id = $(this).data("id");
+            var price = $(this).data("price");
+            var promotionprice = $(this).data("promotionprice");
+            var name = $(this).data("title");
+            $('#imgModal').attr('src', id);
+            $('#title').text(name);
+            $('#price').text(price);
+            $('#promotionprice').text(promotionprice);
+            //$.ajax({
+            //    url: 'Product/ModalProduct',
+            //    type: 'POST',
+            //    data: { id: id },
+            //    success: function() {
+            //        //do something
+            //    }
+            //});
+        });
+    });
+
+
+    //function TEST() {
+    //    alert('axxxxaa');
+    //}
+    //$(document).ready(function() {
+    //document.addEventListener("DOMContentLoaded", function(event) {
+
+
+    //});
+
+    //});
+
+
+
+</script>

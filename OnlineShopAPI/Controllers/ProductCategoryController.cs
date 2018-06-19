@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Http;
 using Model.EF;
 using Newtonsoft.Json;
@@ -12,11 +13,13 @@ using Newtonsoft.Json.Linq;
 
 namespace OnlineShopAPI.Controllers
 {
+    [RoutePrefix("api/ProductCategory")]
     public class ProductCategoryController : ApiController
     {
         private OnlineShopDbContext db = new OnlineShopDbContext();
 
-        
+        [Route("GetAllCategories")]
+        //[HttpPost]
         public string GetAllCategories()
         {
             //return db.ProductCategories.AsEnumerable();
@@ -46,7 +49,7 @@ namespace OnlineShopAPI.Controllers
                 //    //result += "{\"idParent\":\"" + p.ID + "\",\"parentname\":\"" + p.Name + "\",\"idChild\":\"" + child.ID + "\",\"childname\":\"" + child.Name + "\"},";
                 //}
                 //string key = p.ID + ";#" + p.Name;
-                string key = "\""+p.Name+"\":[";
+                string key = "\""+p.ID+";#" +p.Name+"\":[";
                 string tmp = "";
                 IEnumerable<ProductCategory> child = db.ProductCategories.Where(r => r.ParentID == p.ID);
                 //dicCategory.Add(key, new List<ProductCategory>(child));
@@ -68,6 +71,25 @@ namespace OnlineShopAPI.Controllers
             //result = result + "]";
 
             return result;
+        }
+
+
+
+        [Route("api/ProductCategory/GetAllCategories/{id:int}")]
+        //[HttpPost]
+        public string GetCategoryById(string id)
+        {
+            ProductCategory pc = new ProductCategory();
+            pc = db.ProductCategories.Find(Int64.Parse(id));
+            return JsonConvert.SerializeObject(pc, Formatting.Indented);
+        }
+
+        [Route("GetProductByCategoryId")]
+        public string GetProductByCategoryId(string id)
+        {
+            Int64 categoryId = Int64.Parse(id);
+            List<Product> products = db.Products.Where(p => p.CategoryID == categoryId).OrderBy(p => p.ID).ToList();
+            return JsonConvert.SerializeObject(products, Formatting.Indented);
         }
     }
 }

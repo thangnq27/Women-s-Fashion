@@ -19,28 +19,29 @@ var category = {
         category.Synchronized();
     },
     Synchronized: function() {
-        $('#btnSync').on('click', function () {
-            //var tmp = $.session.get("USER_SESSION");
-            //var usernameLogin = '@Session["USER_SESSION"]';
-            //var userlogin = '@Session["UserLogin"]';
-           
-            //alert(userlogin);
-            var datas = JSON.stringify(dataArr);
-            console.log(datas);
-            $.ajax({
-                url: '/Admin/ProductCategory/Synchronized',
-                dataType: 'json',
-                type: 'POST',
-                data: { dataJson: datas },
-                success: function(result) {
-                    if (result.status == true) {
-                        alert('success');
-                    } else
-                        alert('false');
-                }
+        $('#btnSync').on('click',
+            function() {
+                //var tmp = $.session.get("USER_SESSION");
+                //var usernameLogin = '@Session["USER_SESSION"]';
+                //var userlogin = '@Session["UserLogin"]';
 
-            })
-        })
+                //alert(userlogin);
+                var datas = JSON.stringify(dataArr);
+                console.log(datas);
+                $.ajax({
+                    url: '/Admin/ProductCategory/Synchronized',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: { dataJson: datas },
+                    success: function(result) {
+                        if (result.status == true) {
+                            alert('success');
+                        } else
+                            alert('false');
+                    }
+
+                });
+            });
     }
 }
 category.init();

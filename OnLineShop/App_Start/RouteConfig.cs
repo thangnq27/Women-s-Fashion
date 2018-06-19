@@ -14,6 +14,12 @@ namespace OnLineShop
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Product Category",
+                url: "san-pham/{id}",
+                defaults: new { controller = "ProductCategory", action = "GetCategoryById", id = UrlParameter.Optional },
+                namespaces: new[] { "OnLineShop.Controllers" }
+            );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },

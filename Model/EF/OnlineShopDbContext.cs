@@ -101,7 +101,7 @@ namespace Model.EF
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Product>()
-                .Property(e => e.PromotionPricee)
+                .Property(e => e.PromotionPrice)
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Product>()

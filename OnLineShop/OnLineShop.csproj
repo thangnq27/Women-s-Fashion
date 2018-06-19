@@ -1,6 +1,6 @@
 ﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -54,17 +54,24 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="System.Design" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -74,6 +81,30 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.6\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -83,47 +114,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Web.Razor">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages.Deployment">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages.Razor">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Helpers">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Controllers\XMLFile1.xml" />
     <Content Include="Assets\admin\dist\css\sb-admin-2.css" />
     <Content Include="Assets\admin\dist\css\sb-admin-2.min.css" />
     <Content Include="Assets\admin\dist\js\sb-admin-2.js" />
     <Content Include="Assets\admin\dist\js\sb-admin-2.min.js" />
     <Content Include="Assets\admin\js\controller\ProductCategory.js" />
+    <Content Include="Assets\admin\js\controller\Redirect.js" />
     <Content Include="Assets\admin\js\controller\UserController.js" />
+    <Content Include="Assets\admin\js\jquery-3.1.1.min.js" />
     <Content Include="Assets\admin\js\plugin\ckeditor\adapters\jquery.js" />
     <Content Include="Assets\admin\js\plugin\ckeditor\build-config.js" />
     <Content Include="Assets\admin\js\plugin\ckeditor\ckeditor.js" />
@@ -1281,6 +1285,10 @@
     <Content Include="Assets\user\images\2.jpg" />
     <Content Include="Assets\user\images\2.png" />
     <Content Include="Assets\user\images\20.jpg" />
+    <Content Include="Assets\user\images\20170512-navigationbar-01.png" />
+    <Content Include="Assets\user\images\20170512-navigationbar-03-optimized.jpg" />
+    <Content Include="Assets\user\images\20180307-FB-shiseido.jpg" />
+    <Content Include="Assets\user\images\20180611-vc-citimode-topdeal-ol.png" />
     <Content Include="Assets\user\images\21.jpg" />
     <Content Include="Assets\user\images\22.jpg" />
     <Content Include="Assets\user\images\23.jpg" />
@@ -1353,6 +1361,14 @@
     <Content Include="Assets\user\images\9.jpg" />
     <Content Include="Assets\user\images\9.png" />
     <Content Include="Assets\user\images\a.jpg" />
+    <Content Include="Assets\user\images\amelia-2842-681987-1.jpg" />
+    <Content Include="Assets\user\images\amelia-2844-681987-4.jpg" />
+    <Content Include="Assets\user\images\amelia-6562-602987-1.jpg" />
+    <Content Include="Assets\user\images\amelia-6564-602987-4.jpg" />
+    <Content Include="Assets\user\images\amelia-9804-365087-1.jpg" />
+    <Content Include="Assets\user\images\amelia-9806-365087-4.jpg" />
+    <Content Include="Assets\user\images\anhoa-4282-246308-1.jpg" />
+    <Content Include="Assets\user\images\anhoa-4284-246308-4.jpg" />
     <Content Include="Assets\user\images\arrow.png" />
     <Content Include="Assets\user\images\b.jpg" />
     <Content Include="Assets\user\images\b1.jpg" />
@@ -1377,8 +1393,47 @@
     <Content Include="Assets\user\images\c8.jpg" />
     <Content Include="Assets\user\images\c9.jpg" />
     <Content Include="Assets\user\images\check.png" />
+    <Content Include="Assets\user\images\citi-mode-9305-422997-1.jpg" />
     <Content Include="Assets\user\images\close.png" />
+    <Content Include="Assets\user\images\coco-sin-6478-866108-1.jpg" />
+    <Content Include="Assets\user\images\coco-sin-6480-866108-4.jpg" />
+    <Content Include="Assets\user\images\coco-sin-6594-176108-1.jpg" />
+    <Content Include="Assets\user\images\de-leah-1460-278936-1.jpg" />
+    <Content Include="Assets\user\images\de-leah-2516-513597-1.jpg" />
+    <Content Include="Assets\user\images\de-leah-2518-513597-4.jpg" />
+    <Content Include="Assets\user\images\de-leah-5322-563186-1.jpg" />
+    <Content Include="Assets\user\images\de-leah-5324-563186-4.jpg" />
+    <Content Include="Assets\user\images\de-leah-7833-919656-1.jpg" />
+    <Content Include="Assets\user\images\de-leah-8357-738697-1.jpg" />
+    <Content Include="Assets\user\images\de-leah-8358-738697-4.jpg" />
+    <Content Include="Assets\user\images\eden-fashion-1694-345897-4.jpg" />
+    <Content Include="Assets\user\images\eden-fashion-3055-634697-1.jpg" />
+    <Content Include="Assets\user\images\eden-fashion-3058-634697-4.jpg" />
+    <Content Include="Assets\user\images\eden-fashion-3144-834697-1.jpg" />
+    <Content Include="Assets\user\images\eden-fashion-3145-834697-4.jpg" />
+    <Content Include="Assets\user\images\eden-fashion-8526-345897-1.jpg" />
+    <Content Include="Assets\user\images\gracy-design-9225-942477-1.jpg" />
+    <Content Include="Assets\user\images\gracy-design-9227-942477-4.jpg" />
+    <Content Include="Assets\user\images\hoang-khanh-3973-368817-1.jpg" />
+    <Content Include="Assets\user\images\hoang-khanh-3974-368817-4.jpg" />
+    <Content Include="Assets\user\images\hoang-khanh-7579-190827-1.jpg" />
+    <Content Include="Assets\user\images\hoang-khanh-7580-190827-4.jpg" />
+    <Content Include="Assets\user\images\hoang-khanh-7607-769387-1.jpg" />
+    <Content Include="Assets\user\images\hoang-khanh-7608-769387-4.jpg" />
+    <Content Include="Assets\user\images\hoang-khanh-7692-626387-1.jpg" />
+    <Content Include="Assets\user\images\hoang-khanh-7694-626387-4.jpg" />
     <Content Include="Assets\user\images\img-sp.png" />
+    <Content Include="Assets\user\images\inner-circle-0481-301367-1.jpg" />
+    <Content Include="Assets\user\images\inner-circle-0485-301367-4.jpg" />
+    <Content Include="Assets\user\images\inner-circle-1675-567586-1.jpg" />
+    <Content Include="Assets\user\images\inner-circle-1677-567586-4.jpg" />
+    <Content Include="Assets\user\images\inner-circle-2079-799817-1.jpg" />
+    <Content Include="Assets\user\images\inner-circle-6916-182357-1.jpg" />
+    <Content Include="Assets\user\images\inner-circle-6920-182357-4.jpg" />
+    <Content Include="Assets\user\images\inner-circle-7149-518876-1.jpg" />
+    <Content Include="Assets\user\images\inner-circle-7155-518876-4.jpg" />
+    <Content Include="Assets\user\images\inner-circle-9054-850777-1.jpg" />
+    <Content Include="Assets\user\images\inner-circle-9056-850777-4.jpg" />
     <Content Include="Assets\user\images\j1.jpg" />
     <Content Include="Assets\user\images\j2.jpg" />
     <Content Include="Assets\user\images\j3.jpg" />
@@ -1388,7 +1443,80 @@
     <Content Include="Assets\user\images\j7.jpg" />
     <Content Include="Assets\user\images\j8.jpg" />
     <Content Include="Assets\user\images\j9.jpg" />
+    <Content Include="Assets\user\images\kass-3471-023977-1.jpg" />
+    <Content Include="Assets\user\images\kimi-0427-411097-1.jpg" />
+    <Content Include="Assets\user\images\kimi-0429-411097-4.jpg" />
+    <Content Include="Assets\user\images\kimi-7007-212008-1.jpg" />
+    <Content Include="Assets\user\images\kimi-7570-822008-1.jpg" />
+    <Content Include="Assets\user\images\kimi-7571-822008-4.jpg" />
+    <Content Include="Assets\user\images\lamer-3325-546997-1.jpg" />
+    <Content Include="Assets\user\images\lamer-3327-546997-4.jpg" />
+    <Content Include="Assets\user\images\lamer-4208-840797-1.jpg" />
+    <Content Include="Assets\user\images\lamer-4210-840797-4.jpg" />
+    <Content Include="Assets\user\images\lamer-5912-196957-1.jpg" />
+    <Content Include="Assets\user\images\lamer-5913-196957-4.jpg" />
+    <Content Include="Assets\user\images\lamer-8479-367097-1.jpg" />
+    <Content Include="Assets\user\images\lamer-8481-367097-4.jpg" />
+    <Content Include="Assets\user\images\lea-s-2470-601896-1.jpg" />
+    <Content Include="Assets\user\images\lea-s-2471-601896-4.jpg" />
     <Content Include="Assets\user\images\left-arrow.png" />
+    <Content Include="Assets\user\images\mango-0033-494197-1.jpg" />
+    <Content Include="Assets\user\images\mango-0037-494197-4.jpg" />
+    <Content Include="Assets\user\images\mango-0823-614777-1.jpg" />
+    <Content Include="Assets\user\images\mango-0827-614777-4.jpg" />
+    <Content Include="Assets\user\images\mango-1154-276797-1.jpg" />
+    <Content Include="Assets\user\images\mango-1157-276797-4.jpg" />
+    <Content Include="Assets\user\images\mango-1450-766797-1.jpg" />
+    <Content Include="Assets\user\images\mango-1452-766797-4.jpg" />
+    <Content Include="Assets\user\images\mango-1815-296797-1.jpg" />
+    <Content Include="Assets\user\images\mango-1819-296797-4.jpg" />
+    <Content Include="Assets\user\images\mango-1872-586797-1.jpg" />
+    <Content Include="Assets\user\images\mango-1893-186597-1.jpg" />
+    <Content Include="Assets\user\images\mango-1896-186597-4.jpg" />
+    <Content Include="Assets\user\images\mango-1967-076797-1.jpg" />
+    <Content Include="Assets\user\images\mango-1971-076797-4.jpg" />
+    <Content Include="Assets\user\images\mango-2045-956797-1.jpg" />
+    <Content Include="Assets\user\images\mango-2048-956797-4.jpg" />
+    <Content Include="Assets\user\images\mango-2050-856797-1.jpg" />
+    <Content Include="Assets\user\images\mango-2052-856797-4.jpg" />
+    <Content Include="Assets\user\images\mango-2428-017797-1.jpg" />
+    <Content Include="Assets\user\images\mango-2431-017797-4.jpg" />
+    <Content Include="Assets\user\images\mango-4049-198927-1.jpg" />
+    <Content Include="Assets\user\images\mango-5958-883308-1.jpg" />
+    <Content Include="Assets\user\images\mango-5961-883308-4.jpg" />
+    <Content Include="Assets\user\images\mango-6512-108447-1.jpg" />
+    <Content Include="Assets\user\images\mango-6516-108447-4.jpg" />
+    <Content Include="Assets\user\images\mango-8399-616597-1.jpg" />
+    <Content Include="Assets\user\images\mango-8464-506597-1.jpg" />
+    <Content Include="Assets\user\images\mango-8468-506597-4.jpg" />
+    <Content Include="Assets\user\images\mango-8597-386597-1.jpg" />
+    <Content Include="Assets\user\images\mango-8600-386597-4.jpg" />
+    <Content Include="Assets\user\images\mango-8644-606597-1.jpg" />
+    <Content Include="Assets\user\images\mango-8939-699177-1.jpg" />
+    <Content Include="Assets\user\images\mango-8943-699177-4.jpg" />
+    <Content Include="Assets\user\images\mango-8999-006597-1.jpg" />
+    <Content Include="Assets\user\images\mango-9004-006597-4.jpg" />
+    <Content Include="Assets\user\images\mango-9584-317597-1.jpg" />
+    <Content Include="Assets\user\images\mango-9584-317597-4.jpg" />
+    <Content Include="Assets\user\images\mango-9806-606597-4.jpg" />
+    <Content Include="Assets\user\images\marc-1564-057997-1.jpg" />
+    <Content Include="Assets\user\images\marc-1565-057997-4.jpg" />
+    <Content Include="Assets\user\images\miranda-0626-623477-1.jpg" />
+    <Content Include="Assets\user\images\miranda-1173-101208-1.jpg" />
+    <Content Include="Assets\user\images\miranda-1348-301208-1.jpg" />
+    <Content Include="Assets\user\images\miranda-1567-401208-1.jpg" />
+    <Content Include="Assets\user\images\miranda-7159-927308-1.jpg" />
+    <Content Include="Assets\user\images\miranda-7765-809408-1.jpg" />
+    <Content Include="Assets\user\images\miranda-8161-219408-1.jpg" />
+    <Content Include="Assets\user\images\miranda-8231-216497-1.jpg" />
+    <Content Include="Assets\user\images\miranda-8340-334408-1.jpg" />
+    <Content Include="Assets\user\images\mulberry-0499-036487-1.jpg" />
+    <Content Include="Assets\user\images\mulberry-0501-036487-4.jpg" />
+    <Content Include="Assets\user\images\mulberry-4289-793208-1.jpg" />
+    <Content Include="Assets\user\images\oem-6686-705397-1.jpg" />
+    <Content Include="Assets\user\images\oem-6687-705397-4.jpg" />
+    <Content Include="Assets\user\images\orgamie-5518-874008-1.jpg" />
+    <Content Include="Assets\user\images\orgamie-5519-874008-4.jpg" />
     <Content Include="Assets\user\images\p1.jpg" />
     <Content Include="Assets\user\images\p2.jpg" />
     <Content Include="Assets\user\images\p3.jpg" />
@@ -1417,6 +1545,15 @@
     <Content Include="Assets\user\images\s7.jpg" />
     <Content Include="Assets\user\images\s8.jpg" />
     <Content Include="Assets\user\images\s9.jpg" />
+    <Content Include="Assets\user\images\salito-1613-691697-1.jpg" />
+    <Content Include="Assets\user\images\salito-2757-403797-1.jpg" />
+    <Content Include="Assets\user\images\salito-2759-403797-4.jpg" />
+    <Content Include="Assets\user\images\salito-7813-328597-1.jpg" />
+    <Content Include="Assets\user\images\salito-7816-328597-4.jpg" />
+    <Content Include="Assets\user\images\salito-8310-791697-1.jpg" />
+    <Content Include="Assets\user\images\salito-8312-791697-4.jpg" />
+    <Content Include="Assets\user\images\salito-8434-849897-1.jpg" />
+    <Content Include="Assets\user\images\salito-8435-849897-4.jpg" />
     <Content Include="Assets\user\images\ss1.jpg" />
     <Content Include="Assets\user\images\ss2.jpg" />
     <Content Include="Assets\user\images\ss3.jpg" />
@@ -1437,6 +1574,10 @@
     <Content Include="Assets\user\images\t7.jpg" />
     <Content Include="Assets\user\images\t8.jpg" />
     <Content Include="Assets\user\images\t9.jpg" />
+    <Content Include="Assets\user\images\tokichoi-8226-816177-1.jpg" />
+    <Content Include="Assets\user\images\tokichoi-8229-816177-4.jpg" />
+    <Content Include="Assets\user\images\vienne-tran-3064-526797-1.jpg" />
+    <Content Include="Assets\user\images\vienne-tran-3121-653797-1.jpg" />
     <Content Include="Assets\user\images\w1.jpg" />
     <Content Include="Assets\user\images\w2.jpg" />
     <Content Include="Assets\user\images\w3.jpg" />
@@ -1498,9 +1639,12 @@
     <Content Include="Assets\user\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ProductCategory\Index.cshtml" />
-    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
-    <Content Include="Scripts\jquery-1.8.0.js" />
-    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -1516,6 +1660,7 @@
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Common\CommonConstaint.cs" />
     <Compile Include="Common\Encryption.cs" />
@@ -1525,6 +1670,7 @@
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1593,6 +1739,11 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
+    <Content Include="Views\ProductCategory\Index.cshtml" />
+    <Content Include="Views\ProductCategory\GetCategoryById.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Product\ModalProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1646,8 +1797,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

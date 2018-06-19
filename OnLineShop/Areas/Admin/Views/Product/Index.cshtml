@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Model.EF.Product>
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+    WebGrid grid = new WebGrid(Model, rowsPerPage: 40);
+}
+@section header
+{
+
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Panel heading
+            </div>
+            <div class="panel-body">
+                <div clas="row">
+                    <div class="col-md-3" id="divCategory">
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-danger" id="btnSync">Sync</button>
+                    </div>
+                </div>
+                <div class="row show-grid">
+                    @grid.GetHtml(
+                        htmlAttributes: new { id = "tblData" },
+                        tableStyle: "table",
+                        rowStyle: "webgrid-row-style",
+                        mode: WebGridPagerModes.All,
+                        columns: new[]
+                        {
+                            grid.Column("Name", style: "name"),
+                            grid.Column("Images", style: "image"),
+                            grid.Column("Price", style: "price"),
+                            grid.Column("PromotionPrice", style: "promotionprice"),
+                            grid.Column("Status", style: "status")
+                        }
+                        )
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var uri = '/api/ProductCategory/GetAllCategories';
+    var obj = [];
+    $.ajax({
+        dataType: "json",
+        url: uri,
+        type:'GET',
+        
+        success: function(data) {
+            var strhtml = '<select id="ddlViewBy" name="ddlViewBy" class="dropdown">';
+            var tmp = JSON.parse(data);
+            //var tmp = JSON.stringify(data);
+            var arrDataCount = Object.keys(tmp).length;
+            var parentname = Object.keys(tmp);
+            for (var i = 0; i < arrDataCount; i++) {
+                var objtemp = Object.values(tmp)[i];
+                var objChildCount = Object.keys(objtemp).length;
+                for (var j = 0; j < objChildCount; j++) {
+                    var objChild = Object.values(tmp)[i][j];
+                    //console.log(objChild.name);
+                    strhtml += '<option value="' + objChild.id + '">' + objChild.id+'</option>';
+                }
+            }
+            strhtml += '</select>';
+            $('#divCategory').html(strhtml);
+        },
+    }).done(function( data ) {
+        //$.each(data, function(i, comment) {
+        //    console.log(comment);
+        //});
+    });
+
+    //$.getJSON(uri).success(function(data) {
+    //    var strhtml = '<select id="ddlViewBy" class="dropdown"></select>';
+    //    var tmp = JSON.parse(data);
+    //    //var tmp = JSON.stringify(data);
+    //    var arrDataCount = Object.keys(tmp).length;
+    //    var parentname = Object.keys(tmp);
+        
+     
+    //    for (var i = 0; i < arrDataCount; i++) {
+    //        var objtemp = Object.values(tmp)[i];
+    //        var objChildCount = Object.keys(objtemp).length;
+    //        for (var j = 0; j < objChildCount; j++) {
+    //            var objChild = Object.values(tmp)[i][j];
+    //            //console.log(objChild.name);
+    //            strhtml += '<option value="' + objChild.id + '">"' + objChild.id+'"</option>';
+
+    //        }
+            
+
+    //    }
+    //    $('#divCategory').html(strhtml);
+    //});
+    
+    //alert($("#ddlViewBy :selected").text());
+    
+    //$('#ddlViewBy').on('change', function() {
+    //    ddlCategory = $('select[name=selector]').val()
+    //})
+
+    $('#btnSync').on('click', function () {
+        //var rows = $('#tblData tbody tr').length;
+        var rows = $('#tblData tbody tr');
+        arrData = [];
+        var ddlCategory = $("#ddlViewBy").val();
+        //alert(ddlCategory);
+        //return;
+        $('#tblData tbody tr').each(function(index, value) {
+            var name = $('.name', value).text();
+            var img = $('.image', value).text();
+            var price = $('.price', value).text();
+            var promotionprice = $('.promotionprice', value).text();
+            var status = $('.status', value).text();
+            arrData.push({ Name: name, CategoryID: ddlCategory, Images: img, Price: price, Promotionprice: promotionprice, Status: status });
+        });
+
+        console.log(JSON.stringify(arrData));
+        var datas = JSON.stringify(arrData);
+        $.ajax({
+            url: '/Admin/Product/ImportData',
+            type:'POST',
+            data: {data:datas},
+            dataType: 'application/json; charset=utf-8',
+            success: function(result) {
+                alert(result);
+            },
+            error: function(xhr, status, error) {
+                alert(xhr.responseText);
+            }
+        });
+    })
+</script>
+

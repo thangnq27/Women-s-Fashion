@@ -31,7 +31,7 @@ namespace Model.EF
 
         public decimal? Price { get; set; }
 
-        public decimal? PromotionPricee { get; set; }
+        public decimal? PromotionPrice { get; set; }
 
         public bool? IncludeVAT { get; set; }
 
