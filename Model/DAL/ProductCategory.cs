@@ -33,7 +33,7 @@ namespace Model.DAL
                     cat.Name = category.Name;
                     cat.ParentID = category.ParentID;
                     cat.DisplayOrder = category.DisplayOrder;
-                    cat.CreateDate=DateTime.Now;
+                    cat.CreateDate = DateTime.Now;
                     cat.CreateBy = category.CreateBy;
                     cat.ShowOnHome = true;
                     cat.Status = true;
@@ -47,15 +47,53 @@ namespace Model.DAL
                 //write log
                 return false;
             }
-            
+
 
         }
 
         public EF.ProductCategory GetProductCategoryById(string id)
         {
-            EF.ProductCategory pc=new EF.ProductCategory();
+            EF.ProductCategory pc = new EF.ProductCategory();
             pc = db.ProductCategories.Find(Int64.Parse(id));
             return pc;
+        }
+
+        public IQueryable<IGrouping<bool, EF.ProductCategory>> GetAllCategories()
+        {
+            //return db.ProductCategories.ToList();
+            var categories = db.ProductCategories;
+            //var results = categories.GroupBy(
+            //    p => p.ParentID,
+            //    p => p.Name,
+            //    (key, g) => new { PersonId = key, Cars = g.ToList() });
+            //return results.AsQueryable();
+
+            var x = categories.GroupBy(p => p.ParentID != null);
+            //foreach (IGrouping<bool, EF.ProductCategory> item in x)
+            //{
+
+            //}
+
+            var result = x.ToList().AsQueryable();
+            return result;
+        }
+
+        public EF.ProductCategory Update(EF.ProductCategory pc)
+        {
+            //try
+            //{
+                Int64 id = pc.ID;
+                EF.ProductCategory productCategory = db.ProductCategories.Find(id);
+                productCategory.Name = pc.Name;
+                productCategory.DisplayOrder = pc.DisplayOrder;
+            productCategory.MetaTitle = pc.MetaTitle;
+            db.SaveChanges();
+                return productCategory;
+            //}
+            //catch (Exception e)
+            //{
+            //    return pc;
+            //}
         }
 
     }

@@ -1,6 +1,5 @@
-﻿
-@*<script src="/Assets/admin/js/controller/Redirect.js"></script>*@
-<link href="/Assets/user/css/loading.css" rel="stylesheet" />
+﻿@*<script src="/Assets/admin/js/controller/Redirect.js"></script>*@
+
 
 <div class="navigation">
     <div class="container">
@@ -70,10 +69,20 @@
     </div>
 </div>
 
-<div class="osahanloading" style="display: none"></div>
 
+<div id="target" style="display: none">
+    <div class="loading-overlay">
+        <p class="loading-spinner">
+            <span class="loading-icon"></span>
+            <span class="loading-text"></span>
+        </p>
+    </div>
+</div>
 
 <script>
+    //jQuery(function ($) {
+    
+    //});
     var uri = '/api/ProductCategory/GetAllCategories';
     var obj = [];
     $.getJSON(uri).success(function(data) {
@@ -111,9 +120,7 @@
                 var objChild = Object.values(tmp)[i][j];
                 //console.log(objChild.name);
                 //strhtml += '<li><a href="javascript:;" onclick="GetCategoryById(' + objChild.id+')" data-id=' +
-                strhtml += '<li><a href="javascript:;" data-id=' +
-                    objChild.id +
-                    ' class="cssCategory">' +
+                strhtml += '<li><a href="javascript:;" data-id="' + objChild.id+'" class="cssCategory">' +
                     objChild.name +
                     '<span>New</span></a></li>';
 
@@ -136,6 +143,7 @@
     });
     //$body = $("body");
     //var url = "/ProductCategory/GetCategoryById?id=" + value;
+
     $(document).ready(function () {
         
         $('.cssCategory').on('click',
@@ -167,14 +175,22 @@
                     },
                     success: function (data) { 
                         //window.setTimeout(function(){
-                            $('.osahanloading').delay(800).fadeIn(400);
+                        //$('.osahanloading').delay(800).fadeIn(400);
                         //}, 4000);
+                        //jQuery(function ($) {
+                        var target = $('#target');
+                        $('#target').css('display', 'block');
+                            //$("#target").removeAttr("disple").hide();
+                                    target.loadingOverlay();
+                           
+                        //});
                     },
                     complete: function() {                       
                         //$('.osahanloading').hide();
                         window.setTimeout(function () {
                             //$('.osahanloading').delay(800).fadeIn(400);
                             window.location.href = url;
+                            target.loadingOverlay('remove');
                         }, 2000);
                         
                     },

@@ -73,10 +73,8 @@ namespace OnlineShopAPI.Controllers
             return result;
         }
 
-
-
-        [Route("api/ProductCategory/GetAllCategories/{id:int}")]
-        //[HttpPost]
+        [HttpPost]
+        [Route("GetCategoryById")]
         public string GetCategoryById(string id)
         {
             ProductCategory pc = new ProductCategory();
@@ -90,6 +88,14 @@ namespace OnlineShopAPI.Controllers
             Int64 categoryId = Int64.Parse(id);
             List<Product> products = db.Products.Where(p => p.CategoryID == categoryId).OrderBy(p => p.ID).ToList();
             return JsonConvert.SerializeObject(products, Formatting.Indented);
+        }
+
+        [Route("UpdateCategory")]
+        [HttpPost]
+        public Model.EF.ProductCategoryTEST UpdateCategory(Model.EF.ProductCategoryTEST productCategoryTest)
+        {
+
+            return productCategoryTest;
         }
     }
 }

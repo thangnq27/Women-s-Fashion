@@ -1,4 +1,5 @@
-﻿<div class="w3ls_dresses_grid_right_grid2">
+﻿@model List<Model.EF.Product>
+<div class="w3ls_dresses_grid_right_grid2">
     <div class="w3ls_dresses_grid_right_grid2_left">
         <h3>Showing Results: 0-1</h3>
     </div>
@@ -22,7 +23,7 @@
     var urlParams = new URLSearchParams(window.location.search);
     //console.log(urlParams.get('id')); // "value of id in query string"
     //var id = urlParams.get('id');
-    var id =@Model.ID;
+    var id = '';@*@Model.ID;*@
     console.log(id);
     var uri = '/api/ProductCategory/GetProductByCategoryId?id=' + id;
 
@@ -54,7 +55,7 @@
                 '</ul>' +
                 '</div>' +
                 '</div>' +
-                '<h5><a href="single.html">Dresses</a></h5>' +
+                '<h5><a href="javascript:;" onclick="GetDetail('+obj.ID+')">' + obj.Name+'</a></h5>' +
                 '<div class="simpleCart_shelfItem">' +
                 '<p><span>$' + obj.Price + '</span> <i class="item_price">$' + obj.PromotionPrice + '</i></p>' +
                 '<p><a class="item_add" href="#">Add to cart</a></p>' +
@@ -90,16 +91,16 @@
     });
 
 
-    //function TEST() {
-    //    alert('axxxxaa');
-    //}
-    //$(document).ready(function() {
-    //document.addEventListener("DOMContentLoaded", function(event) {
-
-
-    //});
-
-    //});
+    function GetDetail(id) {
+        //alert(id);
+        //$.ajax({
+        //    url: 'GetProductById/Product',
+        //    type: 'POST',
+        //    data: id
+        //});
+        var url = "/Product/GetProductById?id=" + id;
+        window.location.href = url;
+    }
 
 
 

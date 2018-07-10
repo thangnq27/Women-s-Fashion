@@ -30,11 +30,13 @@ D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\Model.pdb
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\EntityFramework.dll
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\EntityFramework.SqlServer.dll
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\Newtonsoft.Json.dll
+D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\Ninject.dll
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\PagedList.dll
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\PagedList.Mvc.dll
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\EntityFramework.xml
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\Newtonsoft.Json.xml
+D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\Ninject.xml
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\PagedList.xml
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\bin\Debug\PagedList.Mvc.xml
 D:\Source\GIT-OnlineShop\Women-s-Fashion\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache

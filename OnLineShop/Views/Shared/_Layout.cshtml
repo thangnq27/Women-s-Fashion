@@ -20,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="/Assets/user/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/Assets/user/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/Assets/user/css/fasthover.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Assets/user/css/loading.css" rel="stylesheet" type="text/css" media="all" />
     <!-- js -->
     <script src="/Assets/user/js/jquery.min.js"></script>
     @*<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>*@
@@ -29,14 +30,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="/Assets/user/css/jquery.countdown.css" />
     <!-- //countdown -->
     <!-- cart -->
-    <script src="/Assets/user/js/simpleCart.min.js"></script>
+    @*<script src="/Assets/user/js/simpleCart.min.js"></script>*@
     <!-- cart -->
     <!-- for bootstrap working -->
     <script type="text/javascript" src="/Assets/user/js/bootstrap-3.1.1.min.js"></script>
     <!-- //for bootstrap working -->
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
-    <link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    @*<link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>*@
+    <!--loading animation-->
+    <script src="/Assets/user/js/loading-overlay.js"></script>
     <!-- start-smooth-scrolling -->
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
@@ -50,7 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-    
+
     <div class="header">
         <div class="container">
             <div class="w3l_login">
@@ -69,22 +72,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </form>
                 </div>
             </div>
-            <div class="cart box_1">
-                <a href="checkout.html">
-                    <div class="total">
-                        <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
-                    </div>
-                    <img src="/Assets/user/images/bag.png" alt="" />
-                </a>
-                <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-                <div class="clearfix"> </div>
-            </div>
+            @{Html.RenderAction("Index","Cart");}
             <div class="clearfix"> </div>
         </div>
     </div>
-    @RenderPage("_Navigation.cshtml")
+    @{ Html.RenderPartial("_Navigation"); }
     <!-- //header -->
-
+    <div id="target" style="display: none">
+        <div class="loading-overlay">
+            <p class="loading-spinner">
+                <span class="loading-icon"></span>
+                <span class="loading-text"></span>
+            </p>
+        </div>
+    </div>
     @RenderBody()
 
     <!-- newsletter -->
@@ -170,3 +171,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //footer -->
 </body>
 </html>
+<script>
+    var target = $('#target');
+    $(window).load(function () {
+        // Animate loader off screen
+        if (target.hasClass('loading')) {
+            target.loadingOverlay('remove');
+        } else {
+            target.loadingOverlay();
+        };
+
+    });
+</script>

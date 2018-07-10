@@ -1,0 +1,158 @@
+﻿@model IEnumerable<Model.EF.Product>
+
+<!-- dresses -->
+
+<div class="w3ls_dresses_grid_right_grid2">
+    <div class="w3ls_dresses_grid_right_grid2_left">
+        <h3>Showing Results: 0-1</h3>
+    </div>
+    <div class="w3ls_dresses_grid_right_grid2_right">
+        <select name="select_item" class="select_item">
+            <option selected="selected">Default sorting</option>
+            <option>Sort by popularity</option>
+            <option>Sort by average rating</option>
+            <option>Sort by newness</option>
+            <option>Sort by price: low to high</option>
+            <option>Sort by price: high to low</option>
+        </select>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+@{int i = 0;}
+@foreach (var item in Model)
+{
+    if ((i >= 3 && (i % 3 == 0)) || i == 0)
+    {
+        @Html.Raw("<div class=\"w3ls_dresses_grid_right_grid3\">")
+
+    }
+    @Html.Raw("<div class=\"col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses\">" +
+                                                  "<div class=\"agile_ecommerce_tab_left dresses_grid\">" +
+                                                "<div class=\"hs-wrapper hs-wrapper2\">" +
+                                            "<img src=\"" + item.Images + "\" alt=\"\" class=\"img-responsive\" />" +
+                                             "<img src=\"" + item.Images + "\" alt=\"\" class=\"img-responsive\" />" +
+                                            "<div class=\"w3_hs_bottom w3_hs_bottom_sub1\">" +
+                                            "<ul>" +
+                                            "<li>" +
+                                            "<a data-id=\"" + item.ID + "\" class=\"popupmodal\" data-toggle=\"modal\" data-target=\"#myModal8\">" +
+                                                "<span class=\"glyphicon glyphicon-eye-open\" aria-hidden=\"true\"></span></a>" +
+                                            "</li>" +
+                                            "</ul>" +
+                                            "</div>" +
+                                            "</div>" +
+                                            "<h5><a href=\"/Product/GetProductById?id=" + item.ID + "\" data-id=" + item.ID + ">" + item.Name + "</a></h5>" +
+                                            "<div class=\"simpleCart_shelfItem\">" +
+                                            "<p><span>$" + item.Price + "</span> <i class=\"item_price\">$" + item.PromotionPrice + "</i></p>" +
+                                            "<p><a class=\"item_add\" href=\"javascript:;\" onclick=\"$cart.addtocart('" + item.ID + "')\">Add to cart</a></p>" +
+                                            "</div>" +
+                                            "<div class=\"dresses_grid_pos\">" +
+                                            "<h6>New</h6>" +
+                                            "</div>" +
+                                            "</div></div>");
+
+
+    if ((i + 1) % 3 == 0 || i == @Model.Count() - 1)
+    {
+        @Html.Raw("<div class=\"clearfix\"></div></div>");
+
+    }
+    { i++; }
+}
+<div id="modalproduct"></div>
+<!-- //dresses -->
+@*@{ Html.RenderAction("ModalProduct", "Product"); }*@
+<script>
+
+    $('.popupmodal').on('click',
+        function() {
+            var id = $(this).data('id');
+            //console.log(id);
+            @*@{ Html.RenderAction("ModalProduct", "Product", new {id = 187 }); }*@
+            @*@Html.RenderPartial("GetProductById", "Product", new { id = id })*@
+            var url = '/Product/ModalProduct';
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: { id },
+                success: function(result) {
+                    //console.log(id);
+                    //window.location.href = url;
+                    //console.log(result);
+                    //$('#myModal6').modal('show');
+                    $('#modalproduct').html(result);
+                    //$("#myModal6").modal();
+                    $('#myModal6').modal('show');
+                }
+            });
+        });
+
+    var $cart = function() {
+        //var products = [];
+
+        return {
+            init: function() {
+
+            },
+            addtocart: function (id) {
+                //var flag = false;
+                var cartItem =
+                {
+                    ID: id,
+                    Quantity: 1
+                };
+                
+                //if (products.length > 0) {
+                //    $.each(function(index, value) {
+                //        console.log(index + ':' + value);
+                //    });
+
+                //}
+                //console.log(item)
+                //$.extend(product, item);
+                //if (products.length > 0) {
+                //    $.each(products,
+                //        function(index, value) {
+                //            if (value.ID == id) {
+                //                console.log(id);
+                //                value.Quantity += 1;
+                //                //return false;
+                //                flag = true;
+                //            }
+                //        });
+                //    if (!flag) {
+                //        products.push(product);
+                //    }
+                //} else {
+                //    products.push(product);
+                //}
+                //console.log(JSON.stringify({ 'products': products }));
+                //console.log(item);
+                //return;
+                $.ajax({
+                    url: '/Cart/AddToCart',
+                    type: 'POST',
+                    data: JSON.stringify(cartItem),
+                    dataType: 'json',
+                    contentType:'application/json;charset=utf-8',
+                    success: function (res) {
+                        
+                        //var obj = JSON.stringify(res);
+                        console.log(res);
+                        $('.simpleCart_total').html(res);
+                        //if (products.length > 0) {
+                        //console.log(products);
+                        //$.each(products,function( index, value) {
+                        //    console.log(value.id);
+                        //});
+
+                        //}
+                    }
+                });
+            }
+        }
+    }();
+    //$cart.init();
+
+
+</script>
+

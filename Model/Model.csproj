@@ -45,6 +45,9 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -71,12 +74,19 @@
     <Compile Include="DAL\ProductCategory.cs" />
     <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="EF\About.cs" />
+    <Compile Include="EF\CartItem.cs" />
     <Compile Include="EF\Category.cs" />
     <Compile Include="EF\Content.cs" />
     <Compile Include="EF\ContentTag.cs" />
+    <Compile Include="EF\LeftSidebar.cs" />
     <Compile Include="EF\OnlineShopDbContext.cs" />
+    <Compile Include="EF\Order.cs" />
+    <Compile Include="EF\OrderDetail.cs" />
+    <Compile Include="EF\Pagination.cs" />
     <Compile Include="EF\Product.cs" />
     <Compile Include="EF\ProductCategory.cs" />
+    <Compile Include="EF\ProductCategoryTEST.cs" />
+    <Compile Include="EF\ProductTEST.cs" />
     <Compile Include="EF\sysdiagram.cs" />
     <Compile Include="EF\Tag.cs" />
     <Compile Include="EF\User.cs" />

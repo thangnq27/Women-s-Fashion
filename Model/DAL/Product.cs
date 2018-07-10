@@ -17,7 +17,7 @@ namespace Model.DAL
 
         public List<EF.Product> GetallProducts()
         {
-            return db.Products.ToList();
+            return db.Products.Take(10).ToList();
         }
 
         public List<EF.Product> GetProductByCategorId(string id)
@@ -30,7 +30,7 @@ namespace Model.DAL
 
         public EF.Product GetProductById(string id)
         {
-            return db.Products.Find(id);
+            return db.Products.Find(Convert.ToInt64(id));
         }
 
         public string ImportData(List<EF.Product> products)
@@ -57,6 +57,10 @@ namespace Model.DAL
             }
         }
 
-
+        /*
+         * Add to cart
+         */
+        //public string Update
+       
     }
 }

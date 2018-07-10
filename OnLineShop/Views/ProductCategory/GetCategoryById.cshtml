@@ -134,10 +134,9 @@
                     </div>
                 </div>
                 <div class="clearfix"> </div>
-                @RenderPage("~/Views/Product/Index.cshtml")
-
-
-                
+                @*@RenderPage("~/Views/Product/Index.cshtml")*@
+                @*@Html.RenderAction("Index", "Product", new { id = Model.ID });*@
+                @{ Html.RenderAction("Index", "Product", new { id = Model.ID }); }
             </div>
             <div class="clearfix"> </div>
         </div>

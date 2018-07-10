@@ -1,5 +1,3 @@
-﻿using System.ComponentModel;
-
 namespace Model.EF
 {
     using System;
@@ -14,19 +12,15 @@ namespace Model.EF
         public long ID { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Tài khoản")]
         public string UserName { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Mật khẩu")]
         public string Password { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Full Name")]
         public string Name { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Địa chỉ")]
         public string Address { get; set; }
 
         [StringLength(50)]
@@ -45,7 +39,6 @@ namespace Model.EF
         [StringLength(50)]
         public string ModifyBy { get; set; }
 
-        [DisplayName("Trạng thái")]
         public bool Status { get; set; }
     }
 }

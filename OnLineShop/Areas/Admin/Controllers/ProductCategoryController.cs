@@ -7,7 +7,9 @@ using System.Web.UI.WebControls;
 using System.Xml;
 using Model.EF;
 using  Model.DAL;
+using Newtonsoft.Json;
 using OnLineShop.Common;
+using ProductCategory = Model.DAL.ProductCategory;
 
 namespace OnLineShop.Areas.Admin.Controllers
 {
@@ -49,6 +51,23 @@ namespace OnLineShop.Areas.Admin.Controllers
             {
                 status=result
             });
+        }
+
+        public ActionResult GetAllCategory()
+        {
+            ProductCategory category=new ProductCategory();
+            IQueryable<IGrouping<bool,Model.EF.ProductCategory>> categories = category.GetAllCategories();
+            
+            //Response.End();
+            return View("GetAllCategory", categories);
+        }
+        [HttpPost]
+        public JsonResult Update(Model.EF.ProductCategory productCategory)
+        {
+            Model.DAL.ProductCategory category=new ProductCategory();
+
+            category.Update(productCategory);
+            return Json(JsonConvert.SerializeObject(category));
         }
     }
 }

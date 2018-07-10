@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.Design;
@@ -43,6 +45,25 @@ namespace OnLineShop.Areas.Admin.Controllers
 
             p.ImportData(jObject);
             return Json("success", JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetAllProduct()
+        {
+            Model.DAL.Product dal=new Model.DAL.Product();
+            List<Model.EF.Product> products = dal.GetallProducts();
+            return View("GetAllProduct",products);
+        }
+
+        [HttpPost]
+        public JsonResult UploadImage()
+        {
+            HttpPostedFileBase file = Request.Files["FileUpload"];
+            file.SaveAs(Server.MapPath("~/Areas/Admin/assets/images/products/") + file.FileName);
+            return new JsonResult
+            {
+                Data = "success",
+                ContentType = "application/json;charset=utf-8"
+            };
         }
     }
 }

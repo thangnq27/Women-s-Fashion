@@ -1,0 +1,287 @@
+﻿@model List<Model.EF.Product>
+@{
+    //Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+<style>
+    .file-field input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        opacity: 0;
+    }
+     .file-field.medium .file-path-wrapper {
+         height: 3rem; }
+    .file-field.medium .file-path-wrapper .file-path {
+        height: 2.8rem; }
+
+    .file-field.big-2 .file-path-wrapper {
+        height: 3.7rem; }
+    .file-field.big-2 .file-path-wrapper .file-path {
+        height: 3.5rem; }
+
+    .pagination.pagination-circle .page-item .page-link {
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .pagination .page-item.active .page-link {
+        /*-webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);*/
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+        /*-webkit-transition: all .2s linear;*/
+        -o-transition: all .2s linear;
+        /*transition: all .2s linear;
+        -webkit-border-radius: .125rem;
+        border-radius: .125rem;
+        background-color: #4285f4;*/
+        color: #fff;
+    }
+
+    .pagination .page-item .page-link {
+        /*-webkit-transition: all .3s linear;*/
+        /*-o-transition: all .3s linear;*/
+        /*transition: all .3s linear;*/
+        outline: 0;
+        border: 0;
+        /*background-color: transparent;*/
+        font-size: .9rem;
+        /*color: #212529;*/
+    }
+
+    .page-item.active .page-link {
+        z-index: 1;
+        /*color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;*/
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title m-b-0">All Products</h5>
+            </div>
+            <div class="table-responsive" id="tblProduct">
+            </div>
+
+        </div>
+
+    </div>
+    <!--Pagination -->
+    <div id="pagination" class="col-md-12"></div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="productpopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true ">
+    <div class="modal-dialog" role="document ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true ">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <td>Name</td>
+                        <td><input id="name" type="text" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="showcate" name="radio-stacked" required>
+                                <label class="custom-control-label" for="showcate">Show</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="disablecate" name="radio-stacked" required>
+                                <label class="custom-control-label" for="disablecate">Hidden</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Meta Title</td>
+                        <td><input id="meta-title" type="text" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <td>Display Order</td>
+                        <td><input id="order" type="text" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <td>Show On Home</td>
+                        <td>
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing1">
+                                <label class="custom-control-label" for="customControlAutosizing1">Show</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing2">
+                                <label class="custom-control-label" for="customControlAutosizing2">Hidden</label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button id="btnSave" type="button" class="btn btn-primary">Save</button>
+                <button id="btnClose" type="button" class="btn btn-danger">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<!-- Image Modal -->
+
+<div class="modal fade" id="imagepopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true ">
+    <div class="modal-dialog" role="document ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true ">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="file-field">
+                    <div class="btn btn-outline-success">
+                        <span>Choose file</span>
+                        <input type="file" id="fileupload" class="file">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnSaveUpload" type="button" class="btn btn-primary">Save</button>
+                <button id="btnCloseUpload" type="button" class="btn btn-danger">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+@*<script src="/Areas/Admin/assets/extra-libs/multicheck/datatable-checkbox-init.js?v=1.2"></script>
+    <script src="/Areas/Admin/assets/extra-libs/multicheck/jquery.multicheck.js?v=1.2"></script>*@
+<link href="/Areas/Admin/assets/extra-libs/multicheck/multicheck.css" rel="stylesheet" />
+<script>
+
+    //api/admin/product
+
+    //$(window).bind('load',
+    //    function () {
+    var url = '/api/admin/product/pagination';
+    //$.getJSON(url).done(function (result) {
+    //    var data = JSON.parse(result);
+    //    console.log(data);
+    //    $('#tblProduct').html(data.content);
+    //    $('#pagination').html(data.paging);
+    //});
+    //});
+
+    $('body').on('click', '#pagination li.enable', function () {
+        var page = $(this).attr('p');
+        //_this.ajax_get_all_items_pagination(page, $('.post_name').val(), $('.post_sort').val());
+        //console.log(page);
+        $product.init(page);
+
+    });
+
+    var initPopup = function () {
+        $('.popupclass').on('click',
+            function () {
+                var obj = $(this).data('id');
+                console.log(obj);
+
+                $("#productpopup").modal('show').on('shown.bs.modal', function (e) {
+                    //console.log($(this));
+                    $('.modal-header #exampleModalLabel').text(obj.Name);
+                    $('.modal-body #name').val(obj.Name);
+                    $('.modal-body #order').val(obj.DisplayOrder);
+                    $('.modal-body #meta-title').val(obj.MetaTitle);
+                });
+                //$("#productpopup").on('shown.bs.modal', function (e){
+                //    console.log($(this));
+                //});
+            });
+
+    };
+    var initImagepopup = function () {
+        $('.imagepopup').on('click',
+            function () {
+                $("#imagepopup").modal('show').on('shown.bs.modal', function (e) {
+                    $("input:file").change(function (){
+                        var fileName = $(this).val();
+                        $(".filename").html(fileName);
+                        var formData = new FormData();
+                        var file = document.getElementById('fileupload').files[0];
+                        formData.append("FileUpload",file);
+                        console.log(file);
+                        $.ajax({
+                            type: 'post',
+                            url: 'UploadImage',
+                            data: formData,
+                            dataType: 'json',
+                            contentType: false,
+                            processData: false,
+                            success: function (response) {
+                                alert('succes!!');
+                            },
+                            error: function (error) {
+                                alert("errror");
+                            }
+                        });
+                    });
+                });
+            });
+    }
+    $('#btnClose').on('click',
+        function () {
+            $('#productpopup').modal('hide');
+        });
+    $product = function () {
+        var pagingEntity = {
+            pagenumber: 1,
+            perpage: 10
+        }
+        var showdata = function () {
+            $.ajax({
+                url: '/api/admin/product/pagination',
+                type: 'POST',
+                data: pagingEntity,
+                //dataTye: 'json',
+                //contentType: 'application/json;charset=utf-8',
+                success: function (result) {
+                    var data = JSON.parse(result);
+                    //console.log(data);
+                    $('#tblProduct').html(data.content);
+                    $('#pagination').html(data.paging);
+                    //initial popup
+                    initPopup();
+                    initImagepopup();
+                },
+                error: function (jqxhr) {
+                    console.log('fail:' + jqxhr);
+                }
+            });
+        }
+        return {
+            init: function (page) {
+                //console.log(page);
+                if (page != undefined)
+                    pagingEntity.pagenumber = page;
+                showdata();
+
+            }
+        }
+    }();
+    //$(document).ready(function () {
+    $product.init();
+
+    //});
+</script>

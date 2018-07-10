@@ -16,6 +16,9 @@ namespace Model.EF
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<ContentTag> ContentTags { get; set; }
+        public virtual DbSet<LeftSidebar> LeftSidebars { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
@@ -87,6 +90,30 @@ namespace Model.EF
             modelBuilder.Entity<ContentTag>()
                 .Property(e => e.TagID)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<LeftSidebar>()
+                .Property(e => e.ClassCssATag)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<LeftSidebar>()
+                .Property(e => e.Href)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<LeftSidebar>()
+                .Property(e => e.ClassCssITtag)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<LeftSidebar>()
+                .Property(e => e.ClassCssSpanTag)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.ShipMobile)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<OrderDetail>()
+                .Property(e => e.Price)
+                .HasPrecision(18, 0);
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.Code)
